@@ -36,4 +36,19 @@ $('#form').keypress( function ( e ) {
     }
 });
 
+//postがされたらサーバーに処理を投げてデータを登録
+$('.btn').click( function ( e ) {
+    
+        
+        var url      = 'follow/store';
+        var method   = 'POST';
+        var Val      = $(this).val(); 
+        var data     = { 'follow' : Val}        
+        var dataType = 'json';
+        
+        console.log(Val);
+
+        ajaxRequest(url, method, data, dataType);    
+    
+});
 

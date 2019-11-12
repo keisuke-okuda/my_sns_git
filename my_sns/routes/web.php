@@ -17,11 +17,17 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
+Route::any('/home', 'HomeController@index')->name('home');
 
 Route::group(['prefix' => 'post'], function() 
 {
     Route::get('/', 'PostController@store');
     Route::post('/', 'PostController@store');
+});
+
+Route::group(['prefix' => 'follow'], function() 
+{
+    Route::any('/', 'FollowController@index')->name('follow');
+    Route::any('store', 'FollowController@store');
+
 });
